@@ -1,5 +1,3 @@
-import "./card-styles.css";
-
 const Card = ({ cardData }) => {
   console.log(cardData);
   if (!cardData) {
@@ -12,11 +10,7 @@ const Card = ({ cardData }) => {
     <div className="card">
       <h2>{cardData.name}</h2>
 
-  
-      <div className="card-section">
-   
-      </div>
-
+      <div className="card-section"></div>
 
       <div className="card-section">
         <h3>Visit Me</h3>
@@ -40,7 +34,6 @@ const Card = ({ cardData }) => {
         <p></p>
       </div>
 
- 
       <div className="card-section">
         <p>
           🥜<strong>Allergy Information: </strong>
@@ -48,7 +41,6 @@ const Card = ({ cardData }) => {
         </p>
       </div>
 
- 
       <div className="card-section">
         <p>
           <strong>🎃Decorations:</strong>{" "}

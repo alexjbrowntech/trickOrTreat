@@ -60,7 +60,7 @@ const MapComp = () => {
         data: data,
         geometry: new Point(fromLonLat([data.address[0], data.address[1]])),
       });
-      if (targetIconCount < 3) {
+      if (targetIconCount < 1) {
         marker.setStyle(iconStyle2);
         targetIconCount++;
       } else {
