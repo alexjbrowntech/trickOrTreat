@@ -44,6 +44,10 @@
   height: 100vh;
 }
 
+.home-page {
+  padding: 40px;
+}
+
 @media (min-width: 480px) {
   .App {
     display: flex;

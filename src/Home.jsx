@@ -8,7 +8,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-page">
       <h1>Trick or Treat Tracker</h1>
       <h3>
         Worried about where to go on Halloween? Or who will come to your door?
