@@ -18,6 +18,7 @@ import Target from "./Target.svg";
 const MapComp = () => {
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [isCardVisible, setIsCardVisible] = useState(false);
+  const [cardData, setCardData] = useState(null);
   const mapElement = useRef();
 
   useEffect(() => {
@@ -82,14 +83,15 @@ const MapComp = () => {
 
     map.on("click", function (e) {
       map.forEachFeatureAtPixel(e.pixel, function (feature) {
-        console.log(e);
-        console.log(feature.getId());
-        console.log(feature);
-        console.log(feature.get("data"));
+        // console.log(e);
+        // console.log(feature.getId());
+        // console.log(feature);
+        setCardData(feature.get("data"));
 
         // Update state with feature data and show the card
         setSelectedFeature(feature.get("data"));
-        setIsCardVisible(true);
+
+        // console.log(cardData);
       });
     });
 
@@ -113,15 +115,8 @@ const MapComp = () => {
           className="map-container"
           style={{ width: "50%", height: "500px" }}
         ></div>
+        <div>{cardData && <Card cardData={cardData} />}</div>
       </div>
-      {isCardVisible && (
-        <Card>
-          {/* Render feature data inside the card */}
-          <div>Feature ID: {selectedFeature.id}</div>
-          <div>Feature Data: {selectedFeature.data}</div>
-          {/* Add more fields as necessary */}
-        </Card>
-      )}
     </>
   );
 };
