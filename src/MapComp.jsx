@@ -9,7 +9,7 @@ import VectorLayer from 'ol/layer/Vector';
 import { fromLonLat } from 'ol/proj';
 // import Style from 'ol/style/Style';
 // import Icon from 'ol/style/Icon';
-import 'ol/ol.css'; // import OpenLayers CSS
+import 'ol/ol.css';
 
 const OLMap = () => {
   const mapElement = useRef();

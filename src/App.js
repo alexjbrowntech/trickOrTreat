@@ -1,12 +1,16 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Home';
 import MapComp from './MapComp';
 
 function App() {
   return (
-    <div className="App">
-      
-      <MapComp />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapComp />} />
+      </Routes>
+    </Router>
   );
 }
 
