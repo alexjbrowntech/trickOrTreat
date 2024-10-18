@@ -17,6 +17,10 @@ const App = () => {
       "6pm-8pm": false,
       "8pm-10pm": false,
     },
+    decorations: {
+      yes: false,
+      no: false,
+    },
     notes: "",
   });
 
