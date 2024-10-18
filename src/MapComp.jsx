@@ -96,7 +96,7 @@ const MapComp = () => {
         <div
           ref={mapElement}
           className="map-container"
-          style={{ width: "100%", height: "500px" }}
+          style={{ width: "100%", height: "100%" }}
         ></div>
         <div>{cardData && <Card cardData={cardData} />}</div>
       </div>
