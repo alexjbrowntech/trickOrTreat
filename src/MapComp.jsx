@@ -7,9 +7,12 @@ import Point from "ol/geom/Point";
 import VectorSource from "ol/source/Vector";
 import VectorLayer from "ol/layer/Vector";
 import { fromLonLat } from "ol/proj";
-// import Style from 'ol/style/Style';
-// import Icon from 'ol/style/Icon';
+import Style from "ol/style/Style";
+import Icon from "ol/style/Icon";
 import "ol/ol.css";
+import { storedData } from "./data";
+import Pumpkin from "./Pumpkin.svg";
+import Target from "./Target.svg";
 
 const OLMap = () => {
   const mapElement = useRef();
@@ -23,21 +26,49 @@ const OLMap = () => {
         }),
       ],
       view: new View({
-        center: fromLonLat([-1.898575, 52.489471]),
-        zoom: 12,
+        center: fromLonLat([
+          storedData[0].address[0],
+          storedData[0].address[1],
+        ]),
+        zoom: 16,
       }),
     });
 
-    const marker = new Feature({
-      geometry: new Point(fromLonLat([-1.898575, 52.489471])),
+    const iconStyle = new Style({
+      image: new Icon({
+        anchor: [0.5, 1],
+        src: Pumpkin,
+        scale: 0.2,
+      }),
     });
 
-    const marker2 = new Feature({
-      geometry: new Point(fromLonLat([-1.899, 52.49])),
+    const iconStyle2 = new Style({
+      image: new Icon({
+        anchor: [0.5, 1],
+        src: Target,
+        scale: 0.3,
+      }),
+    });
+
+    let targetIconCount = 0;
+
+    const features = storedData.map((data, index) => {
+      const marker = new Feature({
+        id: `marker${index}`,
+        data: data,
+        geometry: new Point(fromLonLat([data.address[0], data.address[1]])),
+      });
+      if (targetIconCount < 3) {
+        marker.setStyle(iconStyle2);
+        targetIconCount++;
+      } else {
+        marker.setStyle(iconStyle);
+      }
+      return marker;
     });
 
     const vectorSource = new VectorSource({
-      features: [marker, marker2],
+      features: features,
     });
 
     const vectorLayer = new VectorLayer({
@@ -45,6 +76,15 @@ const OLMap = () => {
     });
 
     map.addLayer(vectorLayer);
+
+    map.on("click", function (e) {
+      map.forEachFeatureAtPixel(e.pixel, function (feature) {
+        console.log(e);
+        console.log(feature.getId());
+        console.log(feature);
+        console.log(feature.get("data"));
+      });
+    });
 
     return () => {
       map.setTarget(null);
@@ -60,7 +100,17 @@ const OLMap = () => {
         height: "100vh",
       }}
     >
-      <div ref={mapElement} style={{ width: "50%", height: "500px" }}></div>
+      <style>
+        {`
+          @media (max-width: 600px) {
+            .map-container {
+              width: 100%;
+              height: 300px;
+            }
+          }
+        `}
+      </style>
+      <div ref={mapElement} className="map-container" style={{ width: "100%", height: "500px" }}></div>
     </div>
   );
 };
