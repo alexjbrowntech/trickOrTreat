@@ -1,5 +1,7 @@
 export const storedData = [{
     name: "John Smith",
+    description: "Halloween Fanatic!",
+    theme: "skeleton party",
     address: [-1.990310, 52.500220],
     treats: {
       candy: false,
@@ -17,10 +19,12 @@ export const storedData = [{
       no: false,
     },
     notes: "",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Jack Skellington",
+    description: "the Pumpkin King",
+    theme: "skeleton party",
     address: [-1.907500, 52.484820],
     treats: {
       candy: false,
@@ -38,10 +42,12 @@ export const storedData = [{
       no: false,
     },
     notes: "Please be spoopy",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Winnifred Sanderson",
+    description: "Come sisters, we fly!",
+    theme: "skeleton party",
     address: [-1.904740, 52.484920],
     treats: {
       candy: true,
@@ -59,10 +65,12 @@ export const storedData = [{
       no: false,
     },
     notes: "Please be spoopy",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Freddie Boo-ger",
+    description: "Brave Souls Only",
+    theme: "fright night",
     address: [-1.9042922929445179, 52.48633511050696],
     treats: {
       candy: true,
