@@ -18,7 +18,7 @@ export const storedData = [
       no: false,
     },
     notes: "",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Jack Skellington",
@@ -39,7 +39,7 @@ export const storedData = [
       no: false,
     },
     notes: "Please be spoopy",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Winnifred Sanderson",
@@ -60,10 +60,11 @@ export const storedData = [
       no: false,
     },
     notes: "Please be spoopy",
-    img: "/src/media/house_dummy.jpg",
+    img: "/media/house_dummy.jpg",
   },
   {
     name: "Freddie Boo-ger",
+
     address: [-1.9058387, 52.4855057],
     treats: {
       candy: true,
