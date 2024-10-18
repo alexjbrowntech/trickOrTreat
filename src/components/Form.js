@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Form.css';
 
 const Form = ({ onSubmit }) => {
   // State for managing form input values
