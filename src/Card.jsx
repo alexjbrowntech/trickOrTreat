@@ -12,20 +12,12 @@ const Card = ({ cardData }) => {
     <div className="card">
       <h2>{cardData.name}</h2>
 
-      {/* Theme */}
+  
       <div className="card-section">
-        {/* <h2>👻 House Theme: {cardData.theme}</h2> */}
+   
       </div>
 
-      {/* Image */}
-      {/* <div className="card-image">
-        <img
-          alt={cardData.name}
-          style={{ maxWidth: 350, width: "100%", height: "auto" }}
-        />
-      </div> */}
 
-      {/* Hours of Participation */}
       <div className="card-section">
         <h3>Visit Me</h3>
         {Object.entries(cardData.hoursParticipation).map(
@@ -37,7 +29,6 @@ const Card = ({ cardData }) => {
         )}
       </div>
 
-      {/* Treats */}
       <div className="card-section">
         <p>
           <strong>🍬Sweets:</strong> {displayYesNo(cardData.treats.candy)}{" "}
@@ -49,7 +40,7 @@ const Card = ({ cardData }) => {
         <p></p>
       </div>
 
-      {/* Allergy Information */}
+ 
       <div className="card-section">
         <p>
           🥜<strong>Allergy Information: </strong>
@@ -57,7 +48,7 @@ const Card = ({ cardData }) => {
         </p>
       </div>
 
-      {/* Decorations */}
+ 
       <div className="card-section">
         <p>
           <strong>🎃Decorations:</strong>{" "}
@@ -65,7 +56,6 @@ const Card = ({ cardData }) => {
         </p>
       </div>
 
-      {/* Notes */}
       {cardData.notes && (
         <div className="card-section">
           <p>

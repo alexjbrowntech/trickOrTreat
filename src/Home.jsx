@@ -6,9 +6,7 @@ const Home = () => {
   const goToMap = () => {
     navigate('/map');
   };
-  // const gotToForm = () => {
-  //   navigate('/form');
-  // };
+
 
   return (
     <div>

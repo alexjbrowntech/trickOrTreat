@@ -16,8 +16,6 @@ import Pumpkin from "./Pumpkin.svg";
 import Target from "./Target.svg";
 
 const MapComp = () => {
-  const [selectedFeature, setSelectedFeature] = useState(null);
-  const [isCardVisible, setIsCardVisible] = useState(false);
   const [cardData, setCardData] = useState(null);
   const mapElement = useRef();
 
@@ -83,15 +81,7 @@ const MapComp = () => {
 
     map.on("click", function (e) {
       map.forEachFeatureAtPixel(e.pixel, function (feature) {
-        // console.log(e);
-        // console.log(feature.getId());
-        // console.log(feature);
         setCardData(feature.get("data"));
-
-        // Update state with feature data and show the card
-        setSelectedFeature(feature.get("data"));
-
-        // console.log(cardData);
       });
     });
 
@@ -102,16 +92,7 @@ const MapComp = () => {
 
   return (
     <>
-      <div
-        className="App"
-        // style={{
-        //   display: "flex",
-        //   justifyContent: "center",
-        //   alignItems: "center",
-        //   height: "100vh",
-        //   position: "relative",
-        // }}
-      >
+      <div className="App">
         <div
           ref={mapElement}
           className="map-container"
