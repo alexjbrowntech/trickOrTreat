@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import Card from "./Card";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
@@ -14,7 +15,9 @@ import { storedData } from "./data";
 import Pumpkin from "./Pumpkin.svg";
 import Target from "./Target.svg";
 
-const OLMap = () => {
+const MapComp = () => {
+  const [selectedFeature, setSelectedFeature] = useState(null);
+  const [isCardVisible, setIsCardVisible] = useState(false);
   const mapElement = useRef();
 
   useEffect(() => {
@@ -83,6 +86,10 @@ const OLMap = () => {
         console.log(feature.getId());
         console.log(feature);
         console.log(feature.get("data"));
+
+        // Update state with feature data and show the card
+        setSelectedFeature(feature.get("data"));
+        setIsCardVisible(true);
       });
     });
 
@@ -92,27 +99,31 @@ const OLMap = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <style>
-        {`
-          @media (max-width: 600px) {
-            .map-container {
-              width: 100%;
-              height: 300px;
-            }
-          }
-        `}
-      </style>
-      <div ref={mapElement} className="map-container" style={{ width: "100%", height: "500px" }}></div>
-    </div>
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <div
+          ref={mapElement}
+          className="map-container"
+          style={{ width: "50%", height: "500px" }}
+        ></div>
+      </div>
+      {isCardVisible && (
+        <Card>
+          {/* Render feature data inside the card */}
+          <div>Feature ID: {selectedFeature.id}</div>
+          <div>Feature Data: {selectedFeature.data}</div>
+          {/* Add more fields as necessary */}
+        </Card>
+      )}
+    </>
   );
 };
 
-export default OLMap;
+export default MapComp;
