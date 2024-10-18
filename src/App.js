@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import MapComp from "./MapComp";
@@ -7,14 +7,7 @@ import React, { useState } from "react";
 import Form from "./components/Form"; // Ensure the path is correct
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/map" element={<MapComp />} />
-      </Routes>
-    </Router>
-  // State for managing form input values
+
   const [hostData, setHostData] = useState({
     name: "",
     address: "",
@@ -40,21 +33,35 @@ const App = () => {
     notes: "",
   });
 
-  // Handle form submission
-  const handleSubmit = (data) => {
-    // Update the state with the submitted data from Form.js
-    setHostData(data);
-    console.log("Form Submitted: ", data);
-  };
+// Handle form submission
+const handleSubmit = (data) => {
+  // Update the state with the submitted data from Form.js
+  setHostData(data);
+  console.log("Form Submitted: ", data);
+};
 
   return (
-    <div>
-      <h1>Halloween Treat Hosts Sign-Up</h1>
-      <Form onSubmit={handleSubmit} /> {/* Connect Form component */}
-      {/* Optionally, you can display submitted data here */}
-      <pre>{JSON.stringify(hostData, null, 2)}</pre> {/* Display form data for testing */}
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapComp />} />
+        <Route path="/form" element={<Form onSubmit={handleSubmit}/>} />
+      </Routes>
+    </Router>
+  )
+  // State for managing form input values
+ 
+  // Handle form submission
+
+  // return (
+  //   <div>
+  //     <h1>Halloween Treat Hosts Sign-Up</h1>
+  //     <Form onSubmit={handleSubmit} /> {/* Connect Form component */}
+  //     {/* Optionally, you can display submitted data here */}
+  //     <pre>{JSON.stringify(hostData, null, 2)}</pre> {/* Display form data for testing */}
+  //   </div>
+  // );
+  
 };
 
 export default App;
