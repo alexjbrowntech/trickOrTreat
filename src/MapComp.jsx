@@ -103,17 +103,19 @@ const MapComp = () => {
   return (
     <>
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
+        className="App"
+        // style={{
+        //   display: "flex",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        //   height: "100vh",
+        //   position: "relative",
+        // }}
       >
         <div
           ref={mapElement}
           className="map-container"
-          style={{ width: "50%", height: "500px" }}
+          style={{ width: "100%", height: "500px" }}
         ></div>
         <div>{cardData && <Card cardData={cardData} />}</div>
       </div>

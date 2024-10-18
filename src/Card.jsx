@@ -1,3 +1,5 @@
+import "./card-styles.css";
+
 const Card = ({ cardData }) => {
   console.log(cardData);
   if (!cardData) {
@@ -16,13 +18,12 @@ const Card = ({ cardData }) => {
       </div>
 
       {/* Image */}
-      <div className="card-image">
+      {/* <div className="card-image">
         <img
-          src={cardData.img}
           alt={cardData.name}
           style={{ maxWidth: 350, width: "100%", height: "auto" }}
         />
-      </div>
+      </div> */}
 
       {/* Hours of Participation */}
       <div className="card-section">

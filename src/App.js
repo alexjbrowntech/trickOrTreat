@@ -1,13 +1,12 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import MapComp from "./MapComp";
 // import { storedData } from "./data";
 import React, { useState } from "react";
 import Form from "./components/Form"; // Ensure the path is correct
+import "./App.css";
 
 const App = () => {
-
   const [hostData, setHostData] = useState({
     name: "",
     address: "",
@@ -33,24 +32,24 @@ const App = () => {
     notes: "",
   });
 
-// Handle form submission
-const handleSubmit = (data) => {
-  // Update the state with the submitted data from Form.js
-  setHostData(data);
-  console.log("Form Submitted: ", data);
-};
+  // Handle form submission
+  const handleSubmit = (data) => {
+    // Update the state with the submitted data from Form.js
+    setHostData(data);
+    console.log("Form Submitted: ", data);
+  };
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/map" element={<MapComp />} />
-        <Route path="/form" element={<Form onSubmit={handleSubmit}/>} />
+        <Route path="/form" element={<Form onSubmit={handleSubmit} />} />
       </Routes>
     </Router>
-  )
+  );
   // State for managing form input values
- 
+
   // Handle form submission
 
   // return (
@@ -61,7 +60,6 @@ const handleSubmit = (data) => {
   //     <pre>{JSON.stringify(hostData, null, 2)}</pre> {/* Display form data for testing */}
   //   </div>
   // );
-  
 };
 
 export default App;
